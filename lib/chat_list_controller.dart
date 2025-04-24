@@ -42,16 +42,16 @@ class ChatListController<T> extends ChangeNotifier {
   bool _shouldJumpToBottom = false;
 
   /// Adds an item to the bottom of the list.
-  void addToBottom(T item) {
+  void addToBottom(T item, {bool scrollToBottom = true}) {
     _newItems.add(item);
-    _lastAddedToBottom = true;
+    _lastAddedToBottom = scrollToBottom;
     notifyListeners();
   }
 
   /// Adds a range of items to the bottom of the list.
-  void addRangeToBottom(List<T> items) {
+  void addRangeToBottom(List<T> items, {bool scrollToBottom = true}) {
     _newItems.addAll(items);
-    _lastAddedToBottom = true;
+    _lastAddedToBottom = scrollToBottom;
     notifyListeners();
   }
 
